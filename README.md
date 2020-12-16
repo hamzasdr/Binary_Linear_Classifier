@@ -1,1 +1,1 @@
-# Binary_Linear_Classifier
+# Linear_Binary_Classifier
