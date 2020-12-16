@@ -22,8 +22,8 @@
       <Button fx:id="Train" layoutX="541.0" layoutY="367.0" mnemonicParsing="false" onAction="#train" prefHeight="25.0" prefWidth="133.0" text="Train" />
       <Label layoutX="541.0" layoutY="163.0" prefHeight="18.0" prefWidth="133.0" text="Learning Rate:" />
       <Label layoutX="541.0" layoutY="223.0" prefHeight="18.0" prefWidth="133.0" text="Number of  Iterations : " />
-      <TextField fx:id="LR" layoutX="541.0" layoutY="191.0" prefHeight="25.0" prefWidth="133.0" />
-      <TextField fx:id="Iterations" layoutX="541.0" layoutY="248.0" prefHeight="25.0" prefWidth="133.0" />
+      <TextField fx:id="LR" layoutX="541.0" layoutY="191.0" prefHeight="25.0" prefWidth="133.0" text="0.5" />
+      <TextField fx:id="Iterations" layoutX="541.0" layoutY="248.0" prefHeight="25.0" prefWidth="133.0" text="100"/>
       <Button fx:id="Load_Test" layoutX="541.0" layoutY="402.0" mnemonicParsing="false" onAction="#select_test_file" prefHeight="25.0" prefWidth="133.0" text="Predict test data" />
       <Button fx:id="Blue" layoutX="542.0" layoutY="112.0" mnemonicParsing="false" onAction="#Blue_btn" prefHeight="25.0" prefWidth="61.0" text="Blue" />
       <Button fx:id="Green" layoutX="623.0" layoutY="112.0" mnemonicParsing="false" onAction="#Green_btn" prefHeight="25.0" prefWidth="61.0" text="Green" />
