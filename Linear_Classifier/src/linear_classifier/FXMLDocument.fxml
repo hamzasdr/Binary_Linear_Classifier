@@ -7,10 +7,10 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="506.0" prefWidth="698.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="linear_classifier.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="559.0" prefWidth="709.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="linear_classifier.FXMLDocumentController">
     <children>
-        <Label fx:id="Result" layoutX="541.0" layoutY="435.0" minHeight="16" minWidth="69" prefHeight="57.0" prefWidth="133.0" />
-      <LineChart fx:id="Chart" maxHeight="506.0" maxWidth="522.0" minHeight="294.0" minWidth="336.0" prefHeight="506.0" prefWidth="522.0">
+        <Label fx:id="Result" layoutX="551.0" layoutY="411.0" minHeight="16" minWidth="69" prefHeight="57.0" prefWidth="133.0" />
+      <LineChart fx:id="Chart" maxHeight="559.0" maxWidth="536.0" minHeight="294.0" minWidth="336.0" prefHeight="559.0" prefWidth="536.0">
         <xAxis>
           <NumberAxis label="Feature 1" lowerBound="-10" side="BOTTOM" tickUnit="1" upperBound="10" fx:id="xAxis" />
         </xAxis>
@@ -18,19 +18,20 @@
           <NumberAxis fx:id="yAxis" label="Feature 2" lowerBound="-10" side="LEFT" tickUnit="1" upperBound="10" />
         </yAxis>
       </LineChart>
-      <Button fx:id="Load_Train" layoutX="541.0" layoutY="329.0" mnemonicParsing="false" onAction="#select_train_file" prefHeight="25.0" prefWidth="133.0" text="Load train data" />
-      <Button fx:id="Train" layoutX="541.0" layoutY="367.0" mnemonicParsing="false" onAction="#train" prefHeight="25.0" prefWidth="133.0" text="Train" />
-      <Label layoutX="541.0" layoutY="163.0" prefHeight="18.0" prefWidth="133.0" text="Learning Rate:" />
-      <Label layoutX="541.0" layoutY="223.0" prefHeight="18.0" prefWidth="133.0" text="Number of  Iterations : " />
-      <TextField fx:id="LR" layoutX="541.0" layoutY="191.0" prefHeight="25.0" prefWidth="133.0" text="0.5" />
-      <TextField fx:id="Iterations" layoutX="541.0" layoutY="248.0" prefHeight="25.0" prefWidth="133.0" text="100"/>
-      <Button fx:id="Load_Test" layoutX="541.0" layoutY="402.0" mnemonicParsing="false" onAction="#select_test_file" prefHeight="25.0" prefWidth="133.0" text="Predict test data" />
-      <Button fx:id="Blue" layoutX="542.0" layoutY="112.0" mnemonicParsing="false" onAction="#Blue_btn" prefHeight="25.0" prefWidth="61.0" text="Blue" />
-      <Button fx:id="Green" layoutX="623.0" layoutY="112.0" mnemonicParsing="false" onAction="#Green_btn" prefHeight="25.0" prefWidth="61.0" text="Green" />
-      <Label layoutX="539.0" layoutY="38.0" prefHeight="25.0" prefWidth="67.0" text="Feature 1" />
-      <Label layoutX="541.0" layoutY="69.0" prefHeight="25.0" prefWidth="67.0" text="Feature 2" />
-      <TextField fx:id="Feature_1" layoutX="610.0" layoutY="38.0" prefHeight="25.0" prefWidth="67.0" />
-      <TextField fx:id="Feature_2" layoutX="610.0" layoutY="69.0" prefHeight="25.0" prefWidth="67.0" />
-      <Button fx:id="Rest" layoutX="541.0" layoutY="289.0" mnemonicParsing="false" onAction="#clear" prefHeight="25.0" prefWidth="133.0" text="Reset" />
+      <Button fx:id="Load_Train" layoutX="551.0" layoutY="305.0" mnemonicParsing="false" onAction="#select_train_file" prefHeight="25.0" prefWidth="133.0" text="Load train data" />
+      <Button fx:id="Train" layoutX="551.0" layoutY="343.0" mnemonicParsing="false" onAction="#train" prefHeight="25.0" prefWidth="133.0" text="Train" />
+      <Label layoutX="551.0" layoutY="139.0" prefHeight="18.0" prefWidth="133.0" text="Learning Rate:" />
+      <Label layoutX="551.0" layoutY="199.0" prefHeight="18.0" prefWidth="133.0" text="Number of  Iterations : " />
+      <TextField fx:id="LR" layoutX="551.0" layoutY="167.0" prefHeight="25.0" prefWidth="133.0" text="0.5" />
+      <TextField fx:id="Iterations" layoutX="551.0" layoutY="224.0" prefHeight="25.0" prefWidth="133.0" text="100" />
+      <Button fx:id="Load_Test" layoutX="551.0" layoutY="378.0" mnemonicParsing="false" onAction="#select_test_file" prefHeight="25.0" prefWidth="133.0" text="Predict test data" />
+      <Button fx:id="Blue" layoutX="552.0" layoutY="88.0" mnemonicParsing="false" onAction="#Blue_btn" prefHeight="25.0" prefWidth="61.0" text="Blue" />
+      <Button fx:id="Green" layoutX="633.0" layoutY="88.0" mnemonicParsing="false" onAction="#Green_btn" prefHeight="25.0" prefWidth="61.0" text="Green" />
+      <Label layoutX="549.0" layoutY="14.0" prefHeight="25.0" prefWidth="67.0" text="Feature 1" />
+      <Label layoutX="551.0" layoutY="45.0" prefHeight="25.0" prefWidth="67.0" text="Feature 2" />
+      <TextField fx:id="Feature_1" layoutX="620.0" layoutY="14.0" prefHeight="25.0" prefWidth="67.0" />
+      <TextField fx:id="Feature_2" layoutX="620.0" layoutY="45.0" prefHeight="25.0" prefWidth="67.0" />
+      <Button fx:id="Rest" layoutX="551.0" layoutY="265.0" mnemonicParsing="false" onAction="#clear" prefHeight="25.0" prefWidth="133.0" text="Reset" />
+      <Label fx:id="Accuracy" layoutX="554.0" layoutY="475.0" prefHeight="33.0" prefWidth="133.0" />
     </children>
 </AnchorPane>

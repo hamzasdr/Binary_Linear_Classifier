@@ -15,9 +15,10 @@
 .default-color3.chart-line-symbol { 
     -fx-background-color: transparent, transparent; 
 }
-
-
-
+#Result{
+    -fx-border-color: black;
+    -fx-border-width: 1;
+}
 .default-color0.chart-legend-item-symbol{
     -fx-background-color: green;
  }

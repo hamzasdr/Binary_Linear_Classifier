@@ -45,6 +45,7 @@ public class FXMLDocumentController implements Initializable {
     double w1 = 0, w2 = 0;
     boolean flag = false, chart_flag = false;
     double min_point = 10000.0, max_point = -10000.0;
+    double train_acc = 0;
     Vector<Point> points = new Vector<>();
     @FXML
     LineChart<Number, Number> Chart;
@@ -56,9 +57,10 @@ public class FXMLDocumentController implements Initializable {
     TextField Feature_1 = new TextField();
     @FXML
     TextField Feature_2 = new TextField();
-
     @FXML
     Label Result = new Label();
+    @FXML
+    Label Accuracy = new Label();
     private XYChart.Series<Number, Number> series = new XYChart.Series<Number, Number>();
     private XYChart.Series<Number, Number> series2 = new XYChart.Series<Number, Number>();
     private XYChart.Series<Number, Number> res_series = new XYChart.Series<Number, Number>();
@@ -196,13 +198,11 @@ public class FXMLDocumentController implements Initializable {
                         double x2 = Double.parseDouble(coords[1]);
                         double yActual = activate(x1, x2, w1, w2, threshold);
                         System.out.println(yActual);
-                        if (yActual >= 0.5) {
-                            System.out.println("its 1");
+                        if (yActual >= 0.5)
                             series.getData().add(new XYChart.Data<Number, Number>(x1, x2));
-                        } else {
-                            System.out.println("its 0");
+                         else
                             series2.getData().add(new XYChart.Data<Number, Number>(x1, x2));
-                        }
+                        
                     }
                     flag = true;
                 }
@@ -217,13 +217,14 @@ public class FXMLDocumentController implements Initializable {
 
     public void train(ActionEvent event) {
         learningRate = Float.parseFloat(LR.getText());
-        numberOfIterations = Integer.parseInt(Iterations.getText());
+        numberOfIterations = Integer.parseInt(Iterations.getText())/numberOfData;
         Random rnd = new Random();
         w1 = -0.5 + (0.5 + 0.5) * rnd.nextDouble();
         w2 = -0.5 + (0.5 + 0.5) * rnd.nextDouble();
         threshold = -0.5 + (0.5 + 0.5) * rnd.nextDouble();
         System.out.println("" + w1 + ", " + w2);
         while (numberOfIterations > 0) {
+            train_acc = 0;
             for (int i = 0; i < numberOfData; i++) {
                 // Step 2: Activation
                 double yActual = activate(points.get(i).x, points.get(i).y, w1, w2, threshold);
@@ -232,9 +233,19 @@ public class FXMLDocumentController implements Initializable {
                 w1 = w1 + learningRate * e * points.get(i).x;
                 w2 = w2 + learningRate * e * points.get(i).y;
                 threshold = threshold + learningRate * e;
-            }
+                // for calucalting train accuracy every epoch
+                if (yActual >= 0.5) 
+                    yActual = 1;
+                 else 
+                    yActual = 0;
+                
+                if(yActual == points.get(i).val)
+                    train_acc++;               
+            }            
             // Step 4: Iteration
             numberOfIterations -= 1;
+            train_acc = (train_acc/numberOfData) * 100;
+            Accuracy.setText("Train Acc= " + train_acc);
         }
         res_series.getData().clear();
         for (double x = min_point - 1; x <= max_point + 1; x++) {
